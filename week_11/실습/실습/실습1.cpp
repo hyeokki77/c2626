@@ -1,4 +1,5 @@
-﻿// 실습1
+﻿
+//과제 
 #include <stdio.h>
 #include <string.h>
 
@@ -11,13 +12,13 @@ int main(void) {
         return 1;
     }
 
-    // fgets로 인해 입력된 개행문자('\n') 제거
+    // 입력받은 문자열의 개행문자('\n') 제거
     str[strcspn(str, "\n")] = '\0';
 
     for (char* p = str; *p != '\0'; p++) {
-        // 소문자인 경우 대문자로 변환
-        if (*p >= 'a' && *p <= 'z') {
-            *p = *p - 32; // 또는 *p - 'a' + 'A'
+        // 대문자('A' ~ 'Z')인 경우 소문자로 변환
+        if (*p >= 'A' && *p <= 'Z') {
+            *p = *p + 32; // 또는 *p - 'A' + 'a'
         }
         // 공백이 아닐 때만 글자 수 카운트
         if (*p != ' ') {
@@ -25,9 +26,8 @@ int main(void) {
         }
     }
 
-    printf("대문자 : %s\n", str);
+    printf("소문자 : %s\n", str);
     printf("글자 수(공백 제외): %d\n", count);
 
     return 0;
 }
-
